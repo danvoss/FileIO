@@ -12,8 +12,12 @@ import java.util.Scanner;
 public class Main {
 
     static Scanner scanner = new Scanner(System.in);
+    static final String SAVE_INFO = "album.json";
+    static Album album;
 
     public static void main(String[] args) {
+
+        loadInfo(SAVE_INFO);
 
         System.out.println("Enter album title.");
         String titleEntry = scanner.nextLine();
@@ -26,12 +30,14 @@ public class Main {
         System.out.println("Enter album year.");
         int yearEntry = Integer.valueOf(scanner.nextLine());
 
-        Album album = new Album();
+        //Album album = new Album();
         album.title = titleEntry;
         album.artist = artistEntry;
         album.genre = genreEntry;
         album.songNumber = songNumEntry;
         album.year = yearEntry;
+
+        saveInfo(album, SAVE_INFO);
 
     }
 
