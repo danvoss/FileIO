@@ -23,7 +23,8 @@ public class MainTest {
 
         Main.saveInfo(album, "test.json");
         File f = new File(TEST_FILE);
-        f.delete();
+        //f.delete();
+        assertTrue(f.exists());
 
     }
 
@@ -36,9 +37,16 @@ public class MainTest {
         album.songNumber = 5;
         album.year = 1900;
 
-        Album testAlbum = Main.loadInfo("test.json");
+        Album newAlbum = Main.loadInfo("test.json");
         File f = new File(TEST_FILE);
         f.delete();
+
+        assertTrue(newAlbum != null);
+        assertTrue(newAlbum.title.equals(album.title));
+        assertTrue(newAlbum.artist.equals(album.artist));
+        assertTrue(newAlbum.genre.equals(album.genre));
+        assertTrue(newAlbum.songNumber == album.songNumber);
+        assertTrue(newAlbum.year == album.year);
 
     }
 
