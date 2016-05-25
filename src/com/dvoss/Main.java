@@ -17,7 +17,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        loadInfo(SAVE_INFO);
+        album = loadInfo(SAVE_INFO);
+        if (album == null) {
+            album = new Album();
+            System.out.println("Creating new album info.");
+        }
+        else {
+            System.out.println("Found saved info. Do you want to update? [Y/N]");
+            String answer = scanner.nextLine();
+            if (answer.equalsIgnoreCase("Y")) {
+                album = new Album();
+            }
+        }
 
         System.out.println("Enter album title.");
         String titleEntry = scanner.nextLine();
@@ -30,7 +41,6 @@ public class Main {
         System.out.println("Enter album year.");
         int yearEntry = Integer.valueOf(scanner.nextLine());
 
-        //Album album = new Album();
         album.title = titleEntry;
         album.artist = artistEntry;
         album.genre = genreEntry;
@@ -48,6 +58,8 @@ public class Main {
         File a = new File(filename);
         try {
             FileWriter fw = new FileWriter(a);
+            fw.write(json);
+            fw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
