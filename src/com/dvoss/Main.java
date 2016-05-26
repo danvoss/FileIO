@@ -23,10 +23,19 @@ public class Main {
             System.out.println("Creating new album info.");
         }
         else {
-            System.out.println("Found saved info. Do you want to update? [Y/N]");
+            System.out.println("Found saved info.");
+            System.out.println(album.getTitle());
+            System.out.println(album.getArtist());
+            System.out.println(album.getGenre());
+            System.out.println(album.getSongNumber());
+            System.out.println(album.getYear());
+            System.out.println("Do you want to update? [Y/N]");
             String answer = scanner.nextLine();
             if (answer.equalsIgnoreCase("Y")) {
                 album = new Album();
+            }
+            else {
+                System.out.println("Thank you.");
             }
         }
 
@@ -40,6 +49,7 @@ public class Main {
         int songNumEntry = Integer.valueOf(scanner.nextLine());
         System.out.println("Enter album year.");
         int yearEntry = Integer.valueOf(scanner.nextLine());
+
 
         album.title = titleEntry;
         album.artist = artistEntry;
