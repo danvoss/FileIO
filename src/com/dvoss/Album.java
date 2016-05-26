@@ -34,8 +34,14 @@ public class Album {
         return year;
     }
 
-//    @Override
-//    public String toString () {
-//        return
-//    }
+    @Override
+    public String toString() {
+        return "Album{" +
+                "title='" + title + '\'' +
+                ", artist='" + artist + '\'' +
+                ", genre='" + genre + '\'' +
+                ", songNumber=" + songNumber +
+                ", year=" + year +
+                '}';
+    }
 }

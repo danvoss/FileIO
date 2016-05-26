@@ -24,11 +24,7 @@ public class Main {
         }
         else {
             System.out.println("Found saved info.");
-            System.out.println(album.getTitle());
-            System.out.println(album.getArtist());
-            System.out.println(album.getGenre());
-            System.out.println(album.getSongNumber());
-            System.out.println(album.getYear());
+            System.out.println(album);
             System.out.println("Do you want to update? [Y/N]");
             String answer = scanner.nextLine();
             if (answer.equalsIgnoreCase("Y")) {
@@ -40,22 +36,15 @@ public class Main {
         }
 
         System.out.println("Enter album title.");
-        String titleEntry = scanner.nextLine();
+        album.title = scanner.nextLine();
         System.out.println("Enter artist name.");
-        String artistEntry = scanner.nextLine();
+        album.artist = scanner.nextLine();
         System.out.println("Enter genre.");
-        String genreEntry = scanner.nextLine();
+        album.genre = scanner.nextLine();
         System.out.println("Enter the number of songs.");
-        int songNumEntry = Integer.valueOf(scanner.nextLine());
+        album.songNumber = Integer.valueOf(scanner.nextLine());
         System.out.println("Enter album year.");
-        int yearEntry = Integer.valueOf(scanner.nextLine());
-
-
-        album.title = titleEntry;
-        album.artist = artistEntry;
-        album.genre = genreEntry;
-        album.songNumber = songNumEntry;
-        album.year = yearEntry;
+        album.year = Integer.valueOf(scanner.nextLine());
 
         saveInfo(album, SAVE_INFO);
 

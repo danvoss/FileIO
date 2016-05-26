@@ -23,7 +23,6 @@ public class MainTest {
 
         Main.saveInfo(album, "test.json");
         File f = new File(TEST_FILE);
-        //f.delete();
         assertTrue(f.exists());
 
     }
